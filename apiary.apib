@@ -1,0 +1,477 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Fiscaluno API
+
+Fiscaluno API for mobile and web clients.
+
+# Group 1- Reviews
+## 1.1 Reviews [/institutions/{institution_id}/reviews{?course,course_type,from_date,page,size}]
+
+### List general reviews from a institution [GET]
+
+Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
+
++ Parameters
+    + course (optional, string) - name of the course to use as filter
+    + course_type (optional, string) - type of the course to use as filter
+    + from_date (optional, date) - type of the course to use as filter
+    + page (optional, numeric) - the current page - for pagination
+    + size (optional, numeric) - the number of records per page - for pagination
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": {
+                [
+                    {
+                        "id": "1-1234n0wjer",
+                        "student_id": "1",
+                        "institution_id":  institution_id,
+                        "rate": 4.5, 
+                        "title": "It's a great university!",
+                        "pros": "Amazing professors and students.",
+                        "cons": "Some of the classes' resources are not up to date.",
+                        "suggestion": "Professors, make your classes always up to date!",
+                        "course_info": {
+                            "course_type": "Bachelor",
+                            "period": "nightly",
+                            "semester": 8,
+                            "course_name":  "Information Systems",
+                            "monthly_payment_value": 1000 
+                         },
+                        "created_at": 1533827512018
+                    }
+                ],
+                [
+                    {
+                        "id": "2-1234n0wjer",
+                        "student_id": "2",
+                        "institution_id":  institution_id,
+                        "rate": 1.5,
+                        "title": "Not so good",
+                        "pros": "The food at the cantina is good.",
+                        "cons": "Pretty much all the rest.",
+                        "suggestion": "Fix all of your mistakes.",
+                        "course_info": {
+                            "course_type": "technologist",
+                            "period": "nightly",
+                            "semester": 2,
+                            "course_name": "Analysis and Systems Development",
+                            "monthly_payment_value": 1350 
+                         },
+                        "created_at": 1533827512018
+                    }
+                ],
+                [
+                    {
+                        "id": "3-1234n0wjer",
+                        "student_id": 3.7,
+                        "institution_id":  institution_id,
+                        "title": "Okay",
+                        "pros": "Confortable and modern classrooms, nice electronic board, class videos and amazing students",
+                        "cons": "Fixed mindset professors",
+                        "suggestion": "Make Carol Dweck's Mindset book a pre requisite for new professors",
+                        "course_info": {
+                            "course_type": "technologist",
+                            "period": "nightly",
+                            "semester": 3,
+                            "course_name": "IT Management",
+                            "monthly_payment_value": 1350 
+                         },
+                        "created_at": 1533827512018
+                    }
+                ]
+            }
+        }
+
+### Review a institution [POST]
+
++ Request (application/json)
+
+        {
+            "student_id": "2",
+            "rate": 1.5,
+            "title": "Not so good",
+            "pros": "The food at the cantina is good.",
+            "cons": "Pretty much all the rest.",
+            "suggestion": "Fix all of your mistakes."
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: institutions/1/reviews/2
+
+    + Body
+        
+            {
+                "status": "ok",
+                "code": 200,
+                "messages": [],
+                "result": {
+                    "id": "2",
+                    "student_id": "2",
+                    "institution_id":  1,
+                    "rate": 1.5,
+                    "title": "Not so good",
+                    "pros": "The food at the cantina is good.",
+                    "cons": "Pretty much all the rest.",
+                    "suggestion": "Fix all of your mistakes.",
+                    "course_info": {
+                        "course_type": "technologist",
+                        "period": "nightly",
+                        "semester": 2,
+                        "course_name": "Analysis and Systems Development",
+                        "monthly_payment_value": 1350 
+                     },
+                    "created_at": 1533827512018
+                }
+            }
+            
+## 1.2 Reviews [/reviews/{review_id}]
+
+### List a specific review from a institution [GET]
+
+não é prioridade pq ainda não tem uso pra isso no app
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": {
+                "id": "1-1234n0wjer",
+                "student_id": "1",
+                "institution_id":  1,
+                "rate": 4.5, 
+                "title": "It's a great university!",
+                "pros": "Amazing professors and students.",
+                "cons": "Some of the classes' resources are not up to date.",
+                "suggestion": "Professors, make your classes always up to date!",
+                "course_info": {
+                    "course_type": "Bachelor",
+                    "semester": 8,
+                    "period": "nightly",
+                    "course_name":  "Information Systems",
+                    "monthly_payment_value": 1000 
+                 },
+                "created_at": 1533827512018
+            }
+        }
+
+## Detailed Reviews [/reviews/{review_id}/details]
+
+### Add a detailed review [POST]
+
+Pelo id da review já dá pra saber qual é a instituição e qual o aluno
+
++ Response 201 (application/json)
+
+        {
+            "detailed_reviews": [
+                {
+                    "review_type": 1,
+                    "rate": 4.5
+                },
+                {
+                    "review_type": 2,
+                    "rate": 2.5
+                },
+                {
+                    "review_type": 3,
+                    "rate": 1.5
+                },
+                {
+                    "review_type": 4,
+                    "rate": 3.5
+                }
+            ]
+        }
+
+## Institution average detailed reviews [/institutions/{institution_id}/reviews/details/average{?course,course_type}]
+
+### List instutition detailed reviews average [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": [
+                    {
+                        "review_type": "Infrastructure",
+                        "rate": 4.5
+                    },
+                    {
+                        "review_type": "Professors",
+                        "rate": 2.5
+                    },
+                    {
+                        "review_type": "Classes",
+                        "rate": 1.5
+                    },
+                    {
+                        "review_type": "Website",
+                        "rate": 3.5
+                    }
+                ]
+            }
+        }
+
+## Review Types [/review/types]
+
+
+### List the detailed review topics [GET]
+
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": 
+                [
+                    {   
+                        "id": 1,
+                        "type": "Infrastructure"
+                    },
+                    {   
+                        "id": 2,
+                        "type": "Professors"
+                    },
+                    {   
+                        "id": 3,
+                        "type": "Classes"
+                    },
+                    {   
+                        "id": 4,
+                        "type": "Website"
+                    },
+                ]
+        }
+        
+# Group 2 - Institutions
+## Institutions [/institutions{?name,city,state,rate,page,size,sort}]
+
+
+### List institutions [GET]
+
++ Parameters
+    + name (optional, string) - name of the the institution
+    + city (optional, string) - the city of the institution
+    + state (optional, string) - the state of the institution
+    + rate (optional, numeric) - the minimum average rating of the institution
+    + page (required, numeric) - the current page - for pagination
+    + size (required, numeric) - the number of records per page - for pagination
+    + sort (optional, string) - the sorting strategy
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result":
+                [
+                    {
+                        "id": 1,
+                        "name": "Faculdade Impacta Tecnologia",
+                        "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "average_rating": 4.5,
+                        "rated_by_count": 103,
+                        "website": "http://account.impacta.edu.br/"
+                        "cnpj": "12347914158",
+                        "address": "avenida rudge 512",
+                        "city": "São Paulo",
+                        "province": "São Paulo"
+                        "emails": [
+                            "foo@bar.com",
+                            "foobar@gmail.com"
+                        ],
+                        "phones": [
+                            "+551191235143",
+                            "+551191212434"
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Universidade Anhembi Morumbi - Vila Olimpia",
+                        "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "average_rating": 4.1,
+                        "rated_by_count": 99,
+                        "website": "http://account.impacta.edu.br/"
+                        "cnpj": "12347914158",
+                        "address": "avenida rudge 512",
+                        "city": "São Paulo",
+                        "province": "São Paulo"
+                        "emails": [
+                            "foo@bar.com",
+                            "foobar@gmail.com"
+                        ],
+                        "phones": [
+                            "+551191235143",
+                            "+551191212434"
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "Universidade Anhembi Morumbi - Mooca",
+                        "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "average_rating": 3.7,
+                        "rated_by_count": 111,
+                        "website": "http://account.impacta.edu.br/",
+                        "cnpj": "12347914158",
+                        "address": "avenida rudge 512",
+                        "city": "São Paulo",
+                        "province": "São Paulo"
+                        "emails": [
+                            "foo@bar.com",
+                            "foobar@gmail.com"
+                        ],
+                        "phones": [
+                            "+551191235143",
+                            "+551191212434"
+                        ]
+                    }
+                ]
+        }
+        
+## Institutions [/institutions/{id}]
+
+### List institution by id [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": {
+                "id": 1,
+                "name": "Faculdade Impacta Tecnologia",
+                "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                "average_rating": 4.5,
+                "rated_by_count": 103,
+                "website": "http://account.impacta.edu.br/"
+                "cnpj": "12347914158",
+                "address": "avenida rudge 512",
+                "city": "São Paulo",
+                "province": "São Paulo"
+                "emails": [
+                    "foo@bar.com",
+                    "foobar@gmail.com"
+                ],
+                "phones": [
+                    "+551191235143",
+                    "+551191212434"
+                ]
+            }
+        }
+
+# Group 3 - Courses
+## Courses [/courses{?name,institution,city,state,rate,page,size,sort}]
+
+### List Courses [GET]
+
++ Parameters
+    + name (optional, string) - name of the course
+    + institution (optional, string) - name of the institution
+    + city (optional, string) - the city of the institution
+    + state (optional, string) - the state of the institution
+    + rate (optional, numeric) - the minimum average rating of the course
+    + page (required, numeric) - the current page - for pagination
+    + size (required, numeric) - the number of records per page - for pagination
+    + sort (optional, string) - the sorting strategy
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": 
+                [
+                    {
+                        "course_name": "Sistemas de informação",
+                        "course_type": "Bacharelado",
+                        "course_average_rating": 5.0,
+                        "course_rated_by_count": 73
+                        "institution_id" : 1,
+                        "institution_name": "Faculdade Impacta Tecnologia",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                    },
+                    {
+                        "course_name": "Análise e desenvolvimento de Sistemas",
+                        "course_type": "Tecnólogo",
+                        "course_average_rating": 4.2,
+                        "course_rated_by_count": 23
+                        "institution_id" : 1,
+                        "institution_name": "Faculdade Impacta Tecnologia",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                    },
+                    {
+                        "course_name": "Banco de Dados"
+                        "course_type": "Tecnólogo",
+                        "course_average_rating": 5.0,
+                        "course_rated_by_count": 73
+                        "institution_id" : 1,
+                        "institution_name": "Faculdade Impacta Tecnologia",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                    }
+                ]
+        }
+        
+## Instituion's courses [/institution/{id}/courses]
+
+Não sei se precisa no momento
+
+### List institution's courses [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": 
+                [
+                    {
+                        "name": "Sistemas de informação",
+                        "type": "Bacharelado",
+                        "duration": 8,
+                        "average_rating": 5.0,
+                        "rated_by_count": 73
+                        "institution_id" : 1,
+                        "monthly_value": 1000,
+                        "periods": ["nightly","morning"]
+                    },
+                    {
+                        "course_name": "Análise e desenvolvimento de Sistemas",
+                        "course_type": "Tecnólogo",
+                        "course_average_rating": 4.2,
+                        "course_rated_by_count": 23
+                        "institution_id" : 1,
+                        "institution_name": "Faculdade Impacta Tecnologia",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "periods": ["nightly","morning"]
+                    },
+                    {
+                        "course_name": "Banco de Dados"
+                        "course_type": "Tecnólogo",
+                        "course_average_rating": 5.0,
+                        "course_rated_by_count": 73
+                        "institution_id" : 1,
+                        "institution_name": "Faculdade Impacta Tecnologia",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "periods": ["nightly","morning"]
+                    }
+                ]
+        }
