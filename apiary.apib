@@ -8,9 +8,15 @@ Fiscaluno API for mobile and web clients.
 # Group 1- Reviews
 ## 1.1 Reviews [/institutions/{institution_id}/reviews{?course,course_type,from_date,page,size}]
 
+Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
+
 ### List general reviews from a institution [GET]
 
-Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
++ Request
+    + Headers
+
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Parameters
     + course (optional, string) - name of the course to use as filter
@@ -18,7 +24,7 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
     + from_date (optional, date) - type of the course to use as filter
     + page (optional, numeric) - the current page - for pagination
     + size (optional, numeric) - the number of records per page - for pagination
-
+    
 + Response 200 (application/json)
 
         {
@@ -90,7 +96,13 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
 
 ### Review a institution [POST]
 
-+ Request (application/json)
++ Request
+    + Headers
+
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
+
++ Request
 
         {
             "student_id": "2",
@@ -139,6 +151,12 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
 
 não é prioridade pq ainda não tem uso pra isso no app
 
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
+
 + Response 200 (application/json)
 
         {
@@ -171,6 +189,12 @@ não é prioridade pq ainda não tem uso pra isso no app
 
 Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
+
 + Response 201 (application/json)
 
         {
@@ -197,6 +221,12 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 ## Institution average detailed reviews [/institutions/{institution_id}/reviews/details/average{?course,course_type}]
 
 ### List instutition detailed reviews average [GET]
+
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Response 200 (application/json)
 
@@ -231,6 +261,13 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 ### List the detailed review topics [GET]
 
 
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
+
+
 + Response 200 (application/json)
 
         {
@@ -263,6 +300,12 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 
 
 ### List institutions [GET]
+
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Parameters
     + name (optional, string) - name of the the institution
@@ -348,6 +391,12 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 
 ### List institution by id [GET]
 
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
+
 + Response 200 (application/json)
 
         {
@@ -380,6 +429,12 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 ## Courses [/courses{?name,institution,city,state,rate,page,size,sort}]
 
 ### List Courses [GET]
+
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Parameters
     + name (optional, string) - name of the course
@@ -433,7 +488,13 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 
 Não sei se precisa no momento
 
-### List institution's courses [GET]
+### List institution's courses [GET
+
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Response 200 (application/json)
 
