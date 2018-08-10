@@ -5,7 +5,7 @@ HOST: http://polls.apiblueprint.org/
 
 Fiscaluno API for mobile and web clients.
 
-# Group 1- Reviews
+# Group 1 - Reviews
 ## 1.1 Reviews [/institutions/{institution_id}/reviews{?course,course_type,from_date,page,size}]
 
 Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
@@ -31,12 +31,12 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
             "status": "ok",
             "code": 200,
             "messages": [],
-            "result": {
+            "result": 
                 [
                     {
                         "id": "1-1234n0wjer",
                         "student_id": "1",
-                        "institution_id":  institution_id,
+                        "institution_id":  1,
                         "rate": 4.5, 
                         "title": "It's a great university!",
                         "pros": "Amazing professors and students.",
@@ -50,13 +50,11 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
                             "monthly_payment_value": 1000 
                          },
                         "created_at": 1533827512018
-                    }
-                ],
-                [
+                    },
                     {
                         "id": "2-1234n0wjer",
                         "student_id": "2",
-                        "institution_id":  institution_id,
+                        "institution_id":  1,
                         "rate": 1.5,
                         "title": "Not so good",
                         "pros": "The food at the cantina is good.",
@@ -70,28 +68,25 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
                             "monthly_payment_value": 1350 
                          },
                         "created_at": 1533827512018
-                    }
-                ],
-                [
+                    },
                     {
-                        "id": "3-1234n0wjer",
-                        "student_id": 3.7,
-                        "institution_id":  institution_id,
-                        "title": "Okay",
-                        "pros": "Confortable and modern classrooms, nice electronic board, class videos and amazing students",
-                        "cons": "Fixed mindset professors",
-                        "suggestion": "Make Carol Dweck's Mindset book a pre requisite for new professors",
-                        "course_info": {
-                            "course_type": "technologist",
-                            "period": "nightly",
-                            "semester": 3,
-                            "course_name": "IT Management",
-                            "monthly_payment_value": 1350 
-                         },
-                        "created_at": 1533827512018
+                    "id": "3-1234n0wjer",
+                    "student_id": 3.7,
+                    "institution_id":  1,
+                    "title": "Okay",
+                    "pros": "Confortable and modern classrooms, nice electronic board, class videos and amazing students",
+                    "cons": "Fixed mindset professors",
+                    "suggestion": "Make Carol Dweck's Mindset book a pre requisite for new professors",
+                    "course_info": {
+                        "course_type": "technologist",
+                        "period": "nightly",
+                        "semester": 3,
+                        "course_name": "IT Management",
+                        "monthly_payment_value": 1350 
+                     },
+                    "created_at": 1533827512018
                     }
                 ]
-            }
         }
 
 ### Review a institution [POST]
@@ -252,7 +247,6 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "rate": 3.5
                     }
                 ]
-            }
         }
 
 ## Review Types [/review/types]
@@ -291,7 +285,7 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                     {   
                         "id": 4,
                         "type": "Website"
-                    },
+                    }
                 ]
         }
         
@@ -330,11 +324,11 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
                         "average_rating": 4.5,
                         "rated_by_count": 103,
-                        "website": "http://account.impacta.edu.br/"
+                        "website": "http://account.impacta.edu.br/",
                         "cnpj": "12347914158",
                         "address": "avenida rudge 512",
                         "city": "São Paulo",
-                        "province": "São Paulo"
+                        "province": "São Paulo",
                         "emails": [
                             "foo@bar.com",
                             "foobar@gmail.com"
@@ -350,11 +344,11 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
                         "average_rating": 4.1,
                         "rated_by_count": 99,
-                        "website": "http://account.impacta.edu.br/"
+                        "website": "http://account.impacta.edu.br/",
                         "cnpj": "12347914158",
                         "address": "avenida rudge 512",
                         "city": "São Paulo",
-                        "province": "São Paulo"
+                        "province": "São Paulo",
                         "emails": [
                             "foo@bar.com",
                             "foobar@gmail.com"
@@ -374,7 +368,7 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "cnpj": "12347914158",
                         "address": "avenida rudge 512",
                         "city": "São Paulo",
-                        "province": "São Paulo"
+                        "province": "São Paulo",
                         "emails": [
                             "foo@bar.com",
                             "foobar@gmail.com"
@@ -409,11 +403,11 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                 "image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
                 "average_rating": 4.5,
                 "rated_by_count": 103,
-                "website": "http://account.impacta.edu.br/"
+                "website": "http://account.impacta.edu.br/",
                 "cnpj": "12347914158",
                 "address": "avenida rudge 512",
                 "city": "São Paulo",
-                "province": "São Paulo"
+                "province": "São Paulo",
                 "emails": [
                     "foo@bar.com",
                     "foobar@gmail.com"
@@ -458,28 +452,28 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "course_name": "Sistemas de informação",
                         "course_type": "Bacharelado",
                         "course_average_rating": 5.0,
-                        "course_rated_by_count": 73
+                        "course_rated_by_count": 73,
                         "institution_id" : 1,
                         "institution_name": "Faculdade Impacta Tecnologia",
-                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png"
                     },
                     {
                         "course_name": "Análise e desenvolvimento de Sistemas",
                         "course_type": "Tecnólogo",
                         "course_average_rating": 4.2,
-                        "course_rated_by_count": 23
+                        "course_rated_by_count": 23,
                         "institution_id" : 1,
                         "institution_name": "Faculdade Impacta Tecnologia",
-                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png"
                     },
                     {
-                        "course_name": "Banco de Dados"
+                        "course_name": "Banco de Dados",
                         "course_type": "Tecnólogo",
                         "course_average_rating": 5.0,
-                        "course_rated_by_count": 73
+                        "course_rated_by_count": 73,
                         "institution_id" : 1,
                         "institution_name": "Faculdade Impacta Tecnologia",
-                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png"
                     }
                 ]
         }
@@ -488,7 +482,7 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
 
 Não sei se precisa no momento
 
-### List institution's courses [GET
+### List institution's courses [GET]
 
 + Request
     + Headers
@@ -509,26 +503,27 @@ Não sei se precisa no momento
                         "type": "Bacharelado",
                         "duration": 8,
                         "average_rating": 5.0,
-                        "rated_by_count": 73
+                        "rated_by_count": 73,
                         "institution_id" : 1,
                         "monthly_value": 1000,
+                        "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
                         "periods": ["nightly","morning"]
                     },
                     {
                         "course_name": "Análise e desenvolvimento de Sistemas",
                         "course_type": "Tecnólogo",
                         "course_average_rating": 4.2,
-                        "course_rated_by_count": 23
+                        "course_rated_by_count": 23,
                         "institution_id" : 1,
                         "institution_name": "Faculdade Impacta Tecnologia",
                         "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
                         "periods": ["nightly","morning"]
                     },
                     {
-                        "course_name": "Banco de Dados"
+                        "course_name": "Banco de Dados",
                         "course_type": "Tecnólogo",
                         "course_average_rating": 5.0,
-                        "course_rated_by_count": 73
+                        "course_rated_by_count": 73,
                         "institution_id" : 1,
                         "institution_name": "Faculdade Impacta Tecnologia",
                         "institution_image_url": "http://account.impacta.edu.br/res/img/logo-faculdade-branco.png",
