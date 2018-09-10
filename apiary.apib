@@ -191,28 +191,30 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
             X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
             X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
-+ Response 201 (application/json)
+    + Body
 
-        {
-            "detailed_reviews": [
-                {
-                    "review_type": 1,
-                    "rate": 4.5
-                },
-                {
-                    "review_type": 2,
-                    "rate": 2.5
-                },
-                {
-                    "review_type": 3,
-                    "rate": 1.5
-                },
-                {
-                    "review_type": 4,
-                    "rate": 3.5
-                }
-            ]
-        }
+            {
+                "detailed_reviews": [
+                    {
+                        "review_type": 1,
+                        "rate": 4.5
+                    },
+                    {
+                        "review_type": 2,
+                        "rate": 2.5
+                    },
+                    {
+                        "review_type": 3,
+                        "rate": 1.5
+                    },
+                    {
+                        "review_type": 4,
+                        "rate": 3.5
+                    }
+                ]
+            }
+    
++ Response 201
 
 ## Institution average detailed reviews [/institutions/{institution_id}/reviews/details/average{?course,course_type}]
 
