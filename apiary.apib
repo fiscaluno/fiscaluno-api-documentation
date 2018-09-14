@@ -458,7 +458,9 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "course_rated_by_count": 73,
                         "institution_id" : 1,
                         "institution_name": "Faculdade Impacta Tecnologia",
-                        "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR"
+                        "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR",
+                        "course_monthly_value_range": [500.50, 1500.80],
+                        "course_periods": ["nightly","morning"]
                     },
                     {
                         "course_name": "Análise e desenvolvimento de Sistemas",
@@ -466,6 +468,8 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "course_average_rating": 4.2,
                         "course_rated_by_count": 23,
                         "institution_id" : 1,
+                        "course_monthly_value_range": [200.50, 1000.80],
+                        "course_periods": ["nightly","morning"],
                         "institution_name": "Faculdade Impacta Tecnologia",
                         "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR"
                     },
@@ -475,63 +479,10 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "course_average_rating": 5.0,
                         "course_rated_by_count": 73,
                         "institution_id" : 1,
+                        "course_monthly_value_range": [500.50, 1500.80],
+                        "course_periods": ["nightly","morning"],
                         "institution_name": "Faculdade Impacta Tecnologia",
                         "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR"
-                    }
-                ]
-        }
-        
-## Instituion's courses [/institution/{id}/courses]
-
-
-### List institution's courses [GET]
-
-+ Request
-    + Headers
-    
-            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
-            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
-
-+ Response 200 (application/json)
-
-        {
-            "status": "ok",
-            "code": 200,
-            "messages": [],
-            "result": 
-                [
-                    {
-                        "course_name": "Sistemas de informação",
-                        "course_type": "Bacharelado",
-                        "course_duration": 8,
-                        "course_average_rating": 5.0,
-                        "course_rated_by_count": 73,
-                        "institution_id" : 1,
-                        "course_monthly_value_range": [500.50, 1500.80],
-                        "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR",
-                        "course_periods": ["nightly","morning"]
-                    },
-                    {
-                        "course_name": "Análise e desenvolvimento de Sistemas",
-                        "course_type": "Tecnólogo",
-                        "course_duration": 4,
-                        "course_average_rating": 4.2,
-                        "course_rated_by_count": 23,
-                        "institution_id" : 1,
-                        "course_monthly_value_range": [500.50, 1500.80],
-                        "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR",
-                        "course_periods": ["nightly","morning"]
-                    },
-                    {
-                        "course_name": "Banco de Dados",
-                        "course_type": "Tecnólogo",
-                        "course_duration": 4,
-                        "course_average_rating": 5.0,
-                        "course_rated_by_count": 73,
-                        "institution_id" : 1,
-                        "course_monthly_value_range": [500.50, 1500.80],
-                        "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR",
-                        "course_periods": ["nightly","morning"]
                     }
                 ]
         }
