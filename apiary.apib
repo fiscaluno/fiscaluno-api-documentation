@@ -6,7 +6,7 @@ HOST: http://polls.apiblueprint.org/
 Fiscaluno API for mobile and web clients.
 
 # Group 1 - Reviews
-## 1.1 Reviews [/reviews{?institution_id,course,course_type,from_date,page,size}]
+## 1.1 Reviews [/reviews{?institutionId,course,course_type,from_date,page,size}]
 
 Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
 
@@ -19,7 +19,7 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
             X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Parameters
-    + institution_id (required, string) - id of the institution to use as filter
+    + institutionId (required, string) - id of the institution to use as filter
     + course (optional, string) - id of the course to use as filter
     + course_type (optional, string) - type of the course to use as filter
     + from_date (optional, date) - type of the course to use as filter
@@ -230,10 +230,10 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
     
 + Response 201
 
-## Average detailed reviews [/reviews/details/average{?institution_id,course,course_type,from_date,page,size}]
+## Average detailed reviews [/reviews/details/average{?institutionId,course,course_type,from_date,page,size}]
 
 + Parameters
-    + institution_id (required, string) - id of the institution to use as filter
+    + institutionId (required, string) - id of the institution to use as filter
     + course (optional, string) - id of the course to use as filter
     + course_type (optional, string) - type of the course to use as filter
     + from_date (optional, date) - type of the course to use as filter
