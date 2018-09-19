@@ -6,7 +6,7 @@ HOST: http://polls.apiblueprint.org/
 Fiscaluno API for mobile and web clients.
 
 # Group 1 - Reviews
-## 1.1 Reviews [/institutions/{institution_id}/reviews{?course,course_type,from_date,page,size}]
+## 1.1 Reviews [/reviews{?institution_id,course,course_type,from_date,page,size}]
 
 Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
 
@@ -19,7 +19,8 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
             X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
 
 + Parameters
-    + course (optional, string) - name of the course to use as filter
+    + institution_id (required, string) - id of the institution to use as filter
+    + course (optional, string) - id of the course to use as filter
     + course_type (optional, string) - type of the course to use as filter
     + from_date (optional, date) - type of the course to use as filter
     + page (optional, numeric) - the current page - for pagination
@@ -43,6 +44,7 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
                         "cons": "Some of the classes' resources are not up to date.",
                         "suggestion": "Professors, make your classes always up to date!",
                         "course_info": {
+                            "course_id": 1,
                             "course_type": "Bachelor",
                             "period": "nightly",
                             "semester": 8,
@@ -61,6 +63,7 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
                         "cons": "Pretty much all the rest.",
                         "suggestion": "Fix all of your mistakes.",
                         "course_info": {
+                            "course_id": 2,
                             "course_type": "technologist",
                             "period": "nightly",
                             "semester": 2,
@@ -79,6 +82,7 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
                     "cons": "Fixed mindset professors",
                     "suggestion": "Make Carol Dweck's Mindset book a pre requisite for new professors",
                     "course_info": {
+                        "course_id": 3,
                         "course_type": "technologist",
                         "period": "nightly",
                         "semester": 3,
@@ -102,11 +106,19 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
 
             {
                 "student_id": "2",
+                "institution_id":  1,
                 "rate": 1.5,
                 "title": "Not so good",
                 "pros": "The food at the cantina is good.",
                 "cons": "Pretty much all the rest.",
-                "suggestion": "Fix all of your mistakes."
+                "suggestion": "Fix all of your mistakes.",
+                "course_info": {
+                    "course_type": "technologist",
+                    "period": "nightly",
+                    "semester": 2,
+                    "course_name": "Analysis and Systems Development",
+                    "monthly_payment_value": 1350 
+                 }
             }
 
 + Response 201 (application/json)
@@ -194,6 +206,8 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
     + Body
 
             {
+                "institution_id": 1,
+                "course_id": 1,
                 "detailed_reviews": [
                     {
                         "review_type": 1,
@@ -216,7 +230,17 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
     
 + Response 201
 
-## Institution average detailed reviews [/institutions/{institution_id}/reviews/details/average{?course,course_type}]
+## Average detailed reviews [/reviews/details/average{?institution_id,course,course_type,from_date,page,size}]
+
++ Parameters
+    + institution_id (required, string) - id of the institution to use as filter
+    + course (optional, string) - id of the course to use as filter
+    + course_type (optional, string) - type of the course to use as filter
+    + from_date (optional, date) - type of the course to use as filter
+    + page (optional, numeric) - the current page - for pagination
+    + size (optional, numeric) - the number of records per page - for pagination
+    
+
 
 ### List instutition detailed reviews average [GET]
 
