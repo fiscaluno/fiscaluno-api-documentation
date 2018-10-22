@@ -32,67 +32,66 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
             "status": "ok",
             "code": 200,
             "messages": [],
-            "result": [{
-                    "id": 1,
-                    "student_id": 1,
-                    "institution_id": 1,
-                    "rate": 4.5,
-                    "title": "It's a great university!",
-                    "pros": "Amazing professors and students.",
-                    "cons": "Some of the classes' resources are not up to date.",
-                    "suggestion": "Professors, make your classes always up to date!",
-                    "course_id": 1,
-                    "course_info": {
-                        "course_id": 1,
-                        "course_type": "Bachelor",
-                        "period": "nightly",
-                        "semester": 8,
-                        "course_name": "Information Systems",
-                        "monthly_payment_value": 1000
+            "result": 
+                [
+                    {
+                        "id": "1-1234n0wjer",
+                        "student_id": "1",
+                        "institution_id":  1,
+                        "rate": 4.5, 
+                        "title": "It's a great university!",
+                        "pros": "Amazing professors and students.",
+                        "cons": "Some of the classes' resources are not up to date.",
+                        "suggestion": "Professors, make your classes always up to date!",
+                        "course_info": {
+                            "course_id": 1,
+                            "course_type": "Bachelor",
+                            "period": "nightly",
+                            "start_year": 2015,
+                            "course_name":  "Information Systems",
+                            "monthly_payment_value": 1000 
+                         },
+                        "created_at": 1535335660621
                     },
-                    "created_at": 1535335660621
-                },
-                {
-                    "id": 2,
-                    "student_id": 2,
-                    "institution_id": 1,
-                    "rate": 1.5,
-                    "title": "Not so good",
-                    "pros": "The food at the cantina is good.",
-                    "cons": "Pretty much all the rest.",
-                    "suggestion": "Fix all of your mistakes.",
-                    "course_id": 2,
-                    "course_info": {
-                        "course_id": 2,
-                        "course_type": "technologist",
-                        "period": "nightly",
-                        "semester": 2,
-                        "course_name": "Analysis and Systems Development",
-                        "monthly_payment_value": 1350
+                    {
+                        "id": "2-1234n0wjer",
+                        "student_id": "2",
+                        "institution_id":  1,
+                        "rate": 1.5,
+                        "title": "Not so good",
+                        "pros": "The food at the cantina is good.",
+                        "cons": "Pretty much all the rest.",
+                        "suggestion": "Fix all of your mistakes.",
+                        "course_info": {
+                            "course_id": 2,
+                            "course_type": "technologist",
+                            "period": "nightly",
+                            "start_year": 2016,
+                            "course_name": "Analysis and Systems Development",
+                            "monthly_payment_value": 1350 
+                         },
+                        "created_at": 1535335660621
                     },
-                    "created_at": 1535335660621
-                },
-                {
-                    "id": 3,
-                    "student_id": 3,
-                    "institution_id": 1,
-                    "rate": 3.2,
+                    {
+                    "id": "3-1234n0wjer",
+                    "student_id": "3",
+                    "institution_id":  1,
+                    "rate": 3.2, 
                     "title": "Okay",
                     "pros": "Confortable and modern classrooms, nice electronic board, class videos and amazing students",
                     "cons": "Fixed mindset professors",
                     "suggestion": "Make Carol Dweck's Mindset book a pre requisite for new professors",
-                    "course_id": 3,
                     "course_info": {
                         "course_id": 3,
                         "course_type": "technologist",
                         "period": "nightly",
-                        "semester": 3,
+                        "start_year": 2018,
                         "course_name": "IT Management",
-                        "monthly_payment_value": 1350
-                    },
+                        "monthly_payment_value": 1350 
+                     },
                     "created_at": 1535335660621
-                }
-            ]
+                    }
+                ]
         }
 
 ### Review a institution [POST]
@@ -106,22 +105,20 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
     + Body
 
             {
-                "student_id": 2,
-                "institution_id": 1,
+                "student_id": "2",
+                "institution_id":  1,
                 "rate": 1.5,
                 "title": "Not so good",
                 "pros": "The food at the cantina is good.",
                 "cons": "Pretty much all the rest.",
                 "suggestion": "Fix all of your mistakes.",
-                "course_id": 1,
                 "course_info": {
-                    "course_id": 1,
                     "course_type": "technologist",
                     "period": "nightly",
-                    "semester": 2,
+                    "start_year": 2,
                     "course_name": "Analysis and Systems Development",
-                    "monthly_payment_value": 1350
-                }
+                    "monthly_payment_value": 1350 
+                 }
             }
 
 + Response 201 (application/json)
@@ -148,7 +145,7 @@ Pra web pode ser interessante incluir os detailed reviews junto (a discutir).
                     "course_info": {
                         "course_type": "technologist",
                         "period": "nightly",
-                        "semester": 2,
+                        "start_year": 2,
                         "course_name": "Analysis and Systems Development",
                         "monthly_payment_value": 1350 
                      },
@@ -185,7 +182,7 @@ não é prioridade pq ainda não tem uso pra isso no app
                 "suggestion": "Professors, make your classes always up to date!",
                 "course_info": {
                     "course_type": "Bachelor",
-                    "semester": 8,
+                    "start_year": 8,
                     "period": "nightly",
                     "course_name":  "Information Systems",
                     "monthly_payment_value": 1000 
@@ -516,4 +513,65 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
                         "institution_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF1WPERa8TRyNp157Gf6jQXHU4T3_fx1COHuyC3FHOWm6b3thR"
                     }
                 ]
+        }
+        
+        
+# Group 4 - Authentication
+## Authentication [/auth]
+### Log Facebook Id [POST]
+
++ Request
+
+    + Body
+
+            {
+                "facebook_id": "1222",
+                "fb_token": "token_value"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": [],
+            "result": {
+                "id": 1,
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8"
+            }
+        }
+        
+        
+# Group 5 - Users
+## User [/users]
+### Register User [POST]
+
++ Request
+    + Headers
+    
+            X-Client-ID: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImNsaWVudCI6ImFueSJ9LCJpc3MiOiJtdSJ9.k7uGe0qbuwwxAp_UOVGVft4eAJwDc_FnaZg-pmwzUZ0
+            X-User-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2MCwiY3JlYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwidXBkYXRlZEF0IjoiMjAxOC0wOC0wMlQxNjozMzoxMS4xNDQ2NDdaIiwiZGVsZXRlZEF0IjpudWxsLCJmYWNlYm9va0lEIjoiMTIzNDEyMzQifSwiZXhwIjoxNTMzMzE0NzE5LCJpc3MiOiJtdSJ9.on2uZ0WIpdlAitBrGzISZ4tWoSRD5__Vswgl84Yaql8
+
+    + Body
+
+            {
+                "birthday": 123478124,
+                "name": "Wilder",
+                "email": "user@fiscaluno.com",
+                "gender": "male",
+                "nacionality": "BR",
+                "civilStatus": "Single",
+                "address": "test",
+                "city": "SP", 
+                "state": "SP",
+                "phone": "91185891239",
+                "fbInstitutionName":  "fit"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": "ok",
+            "code": 200,
+            "messages": []
         }
