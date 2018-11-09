@@ -238,10 +238,10 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
             "result": {}
         }
 
-## Average detailed reviews [/reviews/details/average{?institutionId,course,course_type,from_date,page,size}]
+## Average detailed reviews [/detailedreviews/average{?institution_id,course,course_type,from_date,page,size}]
 
 + Parameters
-    + institutionId (required, string) - id of the institution to use as filter
+    + institution_id (required, numeric) - id of the institution to use as filter
     + course (optional, string) - id of the course to use as filter
     + course_type (optional, string) - type of the course to use as filter
     + from_date (optional, date) - type of the course to use as filter
@@ -250,7 +250,7 @@ Pelo id da review já dá pra saber qual é a instituição e qual o aluno
     
 
 
-### List instutition detailed reviews average [GET]
+### List institution detailed reviews average [GET]
 
 + Request
     + Headers
